@@ -1,11 +1,11 @@
-import { defineConfig } from "cypress";
-//const fs = require('fs-extra');
-import { resolve } from 'path';
+const { defineConfig } = require("cypress");
+const fs = require('fs-extra');
+const path = require('path');
 
 function getConfigurationByFile(file) {
-  const pathToConfigFile = resolve('cypress\\config', `${file}.json`);
-}
-/*
+  const pathToConfigFile = path.resolve('cypress\\config', `${file}.json`);
+
+
   if (!fs.existsSync(pathToConfigFile)) {
     console.log("No custom config file found.");
     return {};
@@ -13,7 +13,6 @@ function getConfigurationByFile(file) {
 
   return fs.readJson(pathToConfigFile)
 }
-  */
 
 module.exports = defineConfig({
   projectId: 'fkp3me',
@@ -46,6 +45,6 @@ module.exports = defineConfig({
     env: {
       webdriveruni_homepage: "http://www.webdriveruniversity.com",
       first_name: "Sarah"
-    },
-  }
-})
+    }
+  },
+});
